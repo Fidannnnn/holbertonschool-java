@@ -1,6 +1,6 @@
 public class PrintFloatVariable {
     public static void main(String[] args) {
-        float pi = (float) 3.14159;
+        float pi = 3.14159f;
         System.out.printf("Pi Value: %.3f ", pi);
     }
 }
