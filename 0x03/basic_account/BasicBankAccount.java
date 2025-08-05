@@ -21,7 +21,7 @@ public class BasicBankAccount {
     }
     
     public void deposit(double value) throws InvalidOperationException{
-        if (value<0) throw new InvalidOperationException("Deposit amount must be greater than 0");
+        if (value<=0) throw new InvalidOperationException("Deposit amount must be greater than 0");
         else balance+=value;
     }
 
