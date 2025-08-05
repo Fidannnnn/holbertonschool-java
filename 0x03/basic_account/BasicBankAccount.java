@@ -26,7 +26,7 @@ public class BasicBankAccount {
     }
 
     public void withdraw(double value) throws InvalidOperationException{
-        if (value<0) throw new InvalidOperationException("Deposit amount must be greater than 0");
+        if (value<0) throw new InvalidOperationException("Withdraw amount must be greater than 0");
         else if (balance<value) 
             throw new InvalidOperationException("Withdrawal amount must be less than the current balance");
         else balance-=value;
