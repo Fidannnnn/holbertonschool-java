@@ -4,6 +4,12 @@ public class ItemOrder {
 
     private Product product;
     private int quantity;
+
+    public ItemOrder(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+    
     public Product getProduct() {
         return product;
     }
@@ -16,9 +22,6 @@ public class ItemOrder {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public ItemOrder(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
+    
     
 }

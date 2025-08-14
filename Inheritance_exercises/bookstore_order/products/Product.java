@@ -6,6 +6,15 @@ public abstract class Product {
     private String country;
     private double grossPrice;
 
+    public Product(String title, int year, String country, double grossPrice) {
+        this.title = title;
+        this.year = year;
+        this.country = country;
+        this.grossPrice = grossPrice;
+    }
+
+    public abstract double getNetPrice();
+    
     public String getTitle() {
         return title;
     }
@@ -38,12 +47,7 @@ public abstract class Product {
         this.grossPrice = grossPrice;
     }
 
-    public Product(String title, int year, String country, double grossPrice) {
-        this.title = title;
-        this.year = year;
-        this.country = country;
-        this.grossPrice = grossPrice;
-    }
     
-    public abstract double getNetPrice();
+    
+    
 }
