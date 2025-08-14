@@ -23,9 +23,10 @@ public class Order {
     }
 
     public void presentOrderSummary() {
+        // Decimal format with comma decimal separator and proper rounding
         DecimalFormat df = new DecimalFormat("#0.00",
                 DecimalFormatSymbols.getInstance(Locale.FRANCE));
-        df.setRoundingMode(RoundingMode.HALF_UP); // so 36,455 → 36,46
+        df.setRoundingMode(RoundingMode.HALF_UP);
 
         double totalProducts = 0.0;
 

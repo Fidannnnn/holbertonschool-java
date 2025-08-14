@@ -3,7 +3,7 @@ public class Program {
             products.Book book1 = new products.Book("Dune", 2017, "United States", 56.30, 680, "Frank Herbert", 1);
             products.Book book2 = new products.Book("One of Us Is Lying", 2018, "United States", 34.93, 384,
                     "Karen McManus", 1);
-            products.Book book3 = new products.Book("War And Peace", 1869, "United States", 31.70, 272,
+            products.Book book3 = new products.Book("War And Peace", 1869, "United States", 31.705, 272,
                     "Leo Tolstoy", 1);
 
             products.Dvd dvd1 = new products.Dvd("Underworld - Blood Wars", 2016, "United States", 16.90,
