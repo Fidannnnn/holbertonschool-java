@@ -49,10 +49,12 @@ public class Order {
     if (specialFormat) {
         System.out.println("DISCOUNT: " + df.format(discountAmount));
         System.out.println("TOTAL ORDER: " + df.format(totalProducts));
+        System.out.println("----------------------------");
         System.out.println("TOTAL PEDIDO: " + df.format(totalProducts - discountAmount));
     } else {
         System.out.println("DISCOUNT: " + df.format(discountAmount));
         System.out.println("TOTAL PRODUCTS: " + df.format(totalProducts));
+        System.out.println("----------------------------");
         System.out.println("TOTAL ORDER: " + df.format(totalProducts - discountAmount));
     }
     System.out.println("----------------------------");
