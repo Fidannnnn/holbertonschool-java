@@ -10,10 +10,10 @@ public class ItemOrder {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
+    public Products getProduct() {
         return product;
     }
-    public void setProduct(Product product) {
+    public void setProduct(Products product) {
         this.product = product;
     }
     public int getQuantity() {
