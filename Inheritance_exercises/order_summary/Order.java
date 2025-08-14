@@ -1,6 +1,7 @@
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Locale;
+import java.math.RoundingMode;
 
 public class Order {
     private double discountPercentage;
@@ -8,30 +9,27 @@ public class Order {
 
     public Order(double discountPercentage, ItemOrder[] items) {
         this.discountPercentage = discountPercentage;
-        this.items = items;
+        this.items = items != null ? items : new ItemOrder[0];
     }
 
     public double calculateTotal() {
-        double total = 0.0;
-        if (items != null) {
-            for (ItemOrder item : items) {
-                if (item != null && item.getProduct() != null) {
-                    total += item.getProduct().getNetPrice() * item.getQuantity();
-                }
+        double totalProducts = 0.0;
+        for (ItemOrder item : items) {
+            if (item != null && item.getProduct() != null) {
+                totalProducts += item.getProduct().getNetPrice() * item.getQuantity();
             }
         }
-        total -= total * discountPercentage / 100.0;
-        return total;
+        return totalProducts - (totalProducts * discountPercentage / 100.0);
     }
 
     public void presentOrderSummary() {
         DecimalFormat df = new DecimalFormat("#0.00",
                 DecimalFormatSymbols.getInstance(Locale.FRANCE));
+        df.setRoundingMode(RoundingMode.HALF_UP); // so 36,455 → 36,46
 
         double totalProducts = 0.0;
 
         System.out.println("------- ORDER SUMMARY -------");
-
         for (ItemOrder item : items) {
             if (item != null && item.getProduct() != null) {
                 String type = item.getProduct().getClass().getSimpleName();
@@ -39,7 +37,6 @@ public class Order {
                 double price = item.getProduct().getNetPrice();
                 int qty = item.getQuantity();
                 double lineTotal = price * qty;
-
                 totalProducts += lineTotal;
 
                 System.out.printf("Type: %s  Title: %s  Price: %s  Quant: %d  Total: %s%n",
@@ -55,5 +52,4 @@ public class Order {
         System.out.println("TOTAL ORDER: " + df.format(totalProducts - discountAmount));
         System.out.println("----------------------------");
     }
-
 }
