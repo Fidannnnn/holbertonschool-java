@@ -1,4 +1,4 @@
-import products.Product;
+import products.Products;
 
 public class ItemOrder {
 
