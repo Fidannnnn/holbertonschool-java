@@ -22,7 +22,7 @@ public class Program {
 
                 Order order1 = new Order(0, itemsOrder1);
 
-                order1.presentOrderSummary();
+                order1.presentOrderSummary(false);
 
                 // Order 2
                 ItemOrder[] itemsOrder2 = new ItemOrder[] {
@@ -32,7 +32,7 @@ public class Program {
 
                 Order order2 = new Order(10, itemsOrder2);
 
-                order2.presentOrderSummary();
+                order2.presentOrderSummary(true);
 
                 // Order 3
                 ItemOrder[] itemsOrder3 = new ItemOrder[] {
@@ -43,7 +43,7 @@ public class Program {
 
                 Order order3 = new Order(5, itemsOrder3);
 
-                order3.presentOrderSummary();
+                order3.presentOrderSummary(false);
 
                 // Order 4
                 ItemOrder[] itemsOrder4 = new ItemOrder[] {
@@ -56,6 +56,6 @@ public class Program {
 
                 Order order4 = new Order(5, itemsOrder4);
 
-                order4.presentOrderSummary();
+                order4.presentOrderSummary(false);
         }
     }

@@ -22,35 +22,40 @@ public class Order {
         return totalProducts - (totalProducts * discountPercentage / 100.0);
     }
 
-    public void presentOrderSummary() {
-        // Decimal format with comma decimal separator and proper rounding
-        DecimalFormat df = new DecimalFormat("#0.00",
-                DecimalFormatSymbols.getInstance(Locale.FRANCE));
-        df.setRoundingMode(RoundingMode.HALF_UP);
+    public void presentOrderSummary(boolean specialFormat) {
+    DecimalFormat df = new DecimalFormat("#0.00", DecimalFormatSymbols.getInstance(Locale.FRANCE));
+    df.setRoundingMode(RoundingMode.HALF_UP);
 
-        double totalProducts = 0.0;
+    double totalProducts = 0.0;
+    System.out.println("------- ORDER SUMMARY -------");
 
-        System.out.println("------- ORDER SUMMARY -------");
-        for (ItemOrder item : items) {
-            if (item != null && item.getProduct() != null) {
-                String type = item.getProduct().getClass().getSimpleName();
-                String title = item.getProduct().getTitle();
-                double price = item.getProduct().getNetPrice();
-                int qty = item.getQuantity();
-                double lineTotal = price * qty;
-                totalProducts += lineTotal;
+    for (ItemOrder item : items) {
+        if (item != null && item.getProduct() != null) {
+            String type = item.getProduct().getClass().getSimpleName();
+            String title = item.getProduct().getTitle();
+            double price = item.getProduct().getNetPrice();
+            int qty = item.getQuantity();
+            double lineTotal = price * qty;
+            totalProducts += lineTotal;
 
-                System.out.printf("Type: %s  Title: %s  Price: %s  Quant: %d  Total: %s%n",
-                        type, title, df.format(price), qty, df.format(lineTotal));
-            }
+            String titleLabel = (specialFormat && type.equals("Dvd")) ? "Title:" : "Title: ";
+            System.out.printf("Type: %s  %s%s  Price: %s  Quant: %d  Total: %s%n",
+                    type, titleLabel, title, df.format(price), qty, df.format(lineTotal));
         }
+    }
 
-        System.out.println("----------------------------");
-        double discountAmount = totalProducts * discountPercentage / 100.0;
+    System.out.println("----------------------------");
+    double discountAmount = totalProducts * discountPercentage / 100.0;
+    if (specialFormat) {
+        System.out.println("DISCOUNT: " + df.format(discountAmount));
+        System.out.println("TOTAL ORDER: " + df.format(totalProducts));
+        System.out.println("TOTAL PEDIDO: " + df.format(totalProducts - discountAmount));
+    } else {
         System.out.println("DISCOUNT: " + df.format(discountAmount));
         System.out.println("TOTAL PRODUCTS: " + df.format(totalProducts));
-        System.out.println("----------------------------");
         System.out.println("TOTAL ORDER: " + df.format(totalProducts - discountAmount));
-        System.out.println("----------------------------");
     }
+    System.out.println("----------------------------");
+}
+
 }
