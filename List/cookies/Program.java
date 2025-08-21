@@ -29,7 +29,7 @@ public class Program {
 
             System.out.println(String.format("Total: %d - Removed: %d", order.getTotalBoxes(), quantityRemoved));
 
-            pedido.addCookieOrder(new CookieOrder("Nutella", 5));
+            order.addCookieOrder(new CookieOrder("Nutella", 5));
 
             System.out.println(String.format("Total: %d", order.getTotalBoxes()));
         }
