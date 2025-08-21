@@ -18,12 +18,13 @@ public class PositiveInteger {
         this.value = value;
     }
 
-    public void setValor(int value) {
-        setValue(value);
-    }
-    public void setValor(int value) {
+    public void setValue(int value) {
         validate(value);
         this.value = value;
+    }
+
+    public void setValor(int value) 
+        setValue(value);
     }
 
     private void validate(int v) {
