@@ -1,5 +1,5 @@
 public class PositiveInteger {
-    Integer value;
+    private int value;
     public PositiveInteger(int value) {
         validate(value);
         this.value = value;
