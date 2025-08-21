@@ -13,10 +13,6 @@ public class PositiveInteger {
             throw new IllegalArgumentException("Value is not a positive integer");
         }
     }
-    public void setValue(int value) {
-        validate(value);
-        this.value = value;
-    }
 
     public void setValue(int value) {
         validate(value);
