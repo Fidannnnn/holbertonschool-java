@@ -45,7 +45,7 @@ public class Mobile {
     public void removeContact(Contact contact) {
         int pos = getContactPosition(contact.getName());
         if (pos == -1) {
-            throw new IllegalArgumentException("Could not remove contact. Contact does not exist");
+            throw new IllegalArgumentException("Could not modify contact. Contact does not exist");        
         }
         contacts.remove(pos);
     }
