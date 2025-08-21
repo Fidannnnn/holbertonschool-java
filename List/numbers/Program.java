@@ -23,7 +23,7 @@ import java.util.*;
             System.out.println(numbers);
 
             try {
-                ManipularArrayNumeros.removeNumber(numbers, 9);
+                ManipulateArrayNumeros.removeNumber(numbers, 9);
             } catch(Exception ex) {
                 System.out.println(ex.getMessage());
             }
