@@ -4,10 +4,7 @@ public class Task {
     private int identifier;
 
     public Task(String description, int identifier) {
-        // Inline validation (so the exact message sits in the constructor)
-        if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid task description");
-        }
+        if (description == null || description.trim().isEmpty()) { throw new IllegalArgumentException("Invalid task description"); }
         this.description = description;
         this.identifier = identifier;
         this.isDone = false;
@@ -18,9 +15,7 @@ public class Task {
     public int getIdentifier() { return identifier; }
 
     public void modifyDescription(String newDescription) {
-        if (newDescription == null || newDescription.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid task description");
-        }
+        if (newDescription == null || newDescription.trim().isEmpty()) { throw new IllegalArgumentException("Invalid task description"); }
         this.description = newDescription;
     }
 
