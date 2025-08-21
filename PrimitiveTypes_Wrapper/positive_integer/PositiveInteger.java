@@ -1,4 +1,4 @@
-public class PrimitiveTypes {
+public class PositiveInteger {
     int value;
     public PositiveInteger(int value) {
         validate(value);
