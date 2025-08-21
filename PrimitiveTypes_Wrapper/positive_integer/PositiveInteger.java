@@ -19,7 +19,7 @@ public class PositiveInteger {
         this.value = value;
     }
 
-    public void setValor(int value) 
+    public void setValor(int value) {
         setValue(value);
     }
 
