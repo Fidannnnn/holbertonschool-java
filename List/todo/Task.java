@@ -4,7 +4,10 @@ public class Task {
     private int identifier;
 
     public Task(String description, int identifier) {
-        validateDescription(description);
+        // Inline validation (so the exact message sits in the constructor)
+        if (description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid task description");
+        }
         this.description = description;
         this.identifier = identifier;
         this.isDone = false;
@@ -15,16 +18,12 @@ public class Task {
     public int getIdentifier() { return identifier; }
 
     public void modifyDescription(String newDescription) {
-        validateDescription(newDescription);
+        if (newDescription == null || newDescription.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid task description");
+        }
         this.description = newDescription;
     }
 
     public void markDone() { this.isDone = true; }
     public void undo() { this.isDone = false; }
-
-    private void validateDescription(String text) {
-        if (text == null || text.trim().isEmpty()) {
-            throw new IllegalArgumentException("Invalid task description");
-        }
-    }
 }
