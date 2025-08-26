@@ -1,6 +1,17 @@
 import java.util.*;
 
 public class Program {
+    private static void printSorted(Set<Phone> phones) {
+        if (phones == null) {
+            System.out.println("Phones not found");
+            return;
+        }
+        // Stable, deterministic order based on the displayed string
+        TreeSet<Phone> sorted = new TreeSet<>(Comparator.comparing(Phone::toString));
+        sorted.addAll(phones);
+        System.out.println(sorted);
+    }
+
     public static void main(String[] args) {
         Phone phone1 = new Phone("11", "9888-5551");
         Phone phone2 = new Phone("17", "99602-6725");
@@ -22,32 +33,15 @@ public class Program {
         phoneList1.addPhone("Carlos Alberto", phone4);
         phoneList1.addPhone("Carlos Alberto", phone6);
 
-        try {
-            phoneList1.addPhone("John Doe", duplicatePhone1);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+        try { phoneList1.addPhone("John Doe", duplicatePhone1); }
+        catch (Exception ex) { System.out.println(ex.getMessage()); }
 
-        try {
-            phoneList1.addPhone("John Doe", duplicatePhone2);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+        try { phoneList1.addPhone("John Doe", duplicatePhone2); }
+        catch (Exception ex) { System.out.println(ex.getMessage()); }
 
-        Set<Phone> johnPhones = phoneList1.isFind("John Doe");
-        if (johnPhones == null) System.out.println("Phones not found");
-        else System.out.println(johnPhones);
-
-        Set<Phone> tomPhones = phoneList1.isFind("Tom Smith");
-        if (tomPhones == null) System.out.println("Phones not found");
-        else System.out.println(tomPhones);
-
-        Set<Phone> carlosPhones = phoneList1.isFind("Carlos Alberto");
-        if (carlosPhones == null) System.out.println("Phones not found");
-        else System.out.println(carlosPhones);
-
-        Set<Phone> richardPhones = phoneList1.isFind("Richard Bob");
-        if (richardPhones == null) System.out.println("Phones not found");
-        else System.out.println(richardPhones);
+        printSorted(phoneList1.isFind("John Doe"));
+        printSorted(phoneList1.isFind("Tom Smith"));
+        printSorted(phoneList1.isFind("Carlos Alberto"));
+        printSorted(phoneList1.isFind("Richard Bob"));
     }
 }
