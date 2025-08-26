@@ -1,8 +1,8 @@
 import java.util.Objects;
 
 public class Author implements Comparable<Author> {
-    private String name;
-    private String surname;
+    String name;
+    String surname;
 
     public Author(String name, String surname) {
         this.name = name;
