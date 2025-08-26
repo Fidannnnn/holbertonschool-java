@@ -19,8 +19,8 @@ public class Phone {
         if (this == o) return true;
         if (!(o instanceof Phone)) return false;
         Phone phone = (Phone) o;
-        return Objects.equals(areaCode, phone.areaCode) &&
-               Objects.equals(number, phone.number);
+        return Objects.equals(areaCode, phone.areaCode)
+            && Objects.equals(number, phone.number);
     }
 
     @Override

@@ -10,21 +10,22 @@ public class PhoneList {
     }
 
     public Set<Phone> addPhone(String name, Phone phone) {
-        // check if another person already has this phone
-        for (String person : phoneMap.keySet()) {
-            if (!person.equals(name) && phoneMap.get(person).contains(phone)) {
+        for (var entry : phoneMap.entrySet()) {
+            String person = entry.getKey();
+            if (!person.equals(name) && entry.getValue().contains(phone)) {
                 throw new IllegalArgumentException("Phone already belongs to another person");
             }
         }
 
         phoneMap.putIfAbsent(name, new HashSet<>());
 
-        if (phoneMap.get(name).contains(phone)) {
+        HashSet<Phone> set = phoneMap.get(name);
+        if (set.contains(phone)) {
             throw new IllegalArgumentException("Phone already exists for this person");
         }
 
-        phoneMap.get(name).add(phone);
-        return phoneMap.get(name);
+        set.add(phone);
+        return set;
     }
 
     public Set<Phone> isFind(String name) {

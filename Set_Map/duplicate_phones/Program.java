@@ -1,4 +1,4 @@
-import java.util.*;
+   import java.util.*;
 
 public class Program {
     public static void main(String[] args) {
@@ -34,18 +34,28 @@ public class Program {
             System.out.println(ex.getMessage());
         }
 
-        Set<Phone> s;
+        Set<Phone> phoneList = phoneList1.isFind("John Doe");
+        if (phoneList == null)
+            System.out.println("Phones not found");
+        else
+            System.out.println(phoneList);
 
-        s = phoneList1.isFind("John Doe");
-        if (s == null) System.out.println("Phones not found"); else System.out.println(s);
+        phoneList = phoneList1.isFind("Tom Smith");
+        if (phoneList == null)
+            System.out.println("Phones not found");
+        else
+            System.out.println(phoneList);
 
-        s = phoneList1.isFind("Tom Smith");
-        if (s == null) System.out.println("Phones not found"); else System.out.println(s);
+        phoneList = phoneList1.isFind("Carlos Alberto");
+        if (phoneList == null)
+            System.out.println("Phones not found");
+        else
+            System.out.println(phoneList);
 
-        s = phoneList1.isFind("Carlos Alberto");
-        if (s == null) System.out.println("Phones not found"); else System.out.println(s);
-
-        s = phoneList1.isFind("Richard Bob");
-        if (s == null) System.out.println("Phones not found"); else System.out.println(s);
+        phoneList = phoneList1.isFind("Richard Bob");
+        if (phoneList == null)
+            System.out.println("Phones not found");
+        else
+            System.out.println(phoneList);
     }
-}
+    }
