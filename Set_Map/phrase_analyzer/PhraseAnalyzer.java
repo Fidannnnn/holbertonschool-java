@@ -2,7 +2,7 @@ import java.util.TreeMap;
 
 public class PhraseAnalyzer {
     public static TreeMap<String, Integer> wordCount (String sentence){
-        sentence = sentence.toLowerCase().replaceAll("[?.!]", " ");
+        sentence = sentence.toLowerCase().replaceAll("[?.,!]", " ");
         String[] words = sentence.split("\\s+");
 
         TreeMap<String, Integer> map = new TreeMap<>();
