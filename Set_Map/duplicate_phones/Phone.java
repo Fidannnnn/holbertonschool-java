@@ -28,4 +28,3 @@ public class Phone {
         return Objects.hash(areaCode, number);
     }
 }
-
