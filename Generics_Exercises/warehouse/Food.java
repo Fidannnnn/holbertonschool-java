@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Food {
     private String name;
     private double calories;
@@ -23,7 +25,7 @@ public class Food {
 
     @Override
     public String toString() {
-        // Use default locale so commas appear where expected on your grader
-        return String.format("[%s] %.6f $ %.6f", name, calories, price);
+        // force comma for decimal separator
+        return String.format(Locale.GERMANY, "[%s] %.6f $ %.6f", name, calories, price);
     }
 }
