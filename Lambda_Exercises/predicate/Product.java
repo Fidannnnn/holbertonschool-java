@@ -23,18 +23,16 @@ public class Product {
     public int getStockQuantity() { return stockQuantity; }
     public ProductTypes getType() { return type; }
 
-    // Keeps the grader happy: six decimals, dot as separator
     @Override
     public String toString() {
-        return String.format("%s %.6f %.6f %d %s",
-                name, price, weight, stockQuantity, type);
-    }
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator(',');
+        DecimalFormat df = new DecimalFormat("0.000000", symbols);
 
-    // Your comma version (also six decimals, no grouping)
-    public String toStringWithComma() {
-        DecimalFormatSymbols sym = new DecimalFormatSymbols();
-        sym.setDecimalSeparator(',');
-        DecimalFormat df = new DecimalFormat("0.000000", sym);
-        return name + " " + df.format(price) + " " + df.format(weight) + " " + stockQuantity + " " + type;
+        return name + " " 
+                + df.format(price) + " " 
+                + df.format(weight) + " " 
+                + stockQuantity + " " 
+                + type;
     }
 }
