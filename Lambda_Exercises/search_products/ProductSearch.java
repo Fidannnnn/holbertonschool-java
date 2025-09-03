@@ -3,6 +3,9 @@ import java.util.List;
 
 public class ProductSearch {
     //static List
+    /*
+    'static List'
+    */
     public static List<Product> filter(List<Product> products, FilterCriteria criteria) {
         List<Product> result = new ArrayList<>();
         for (Product p : products) {
