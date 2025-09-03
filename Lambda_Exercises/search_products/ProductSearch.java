@@ -7,6 +7,8 @@ import java.util.List;
 // static List" <Product> filter
 // static List"<Product> filter
 // "static List filter
+// "static List FilterCriteria 
+
 
 public class ProductSearch {
     //  "public static List filter" 
