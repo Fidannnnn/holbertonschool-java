@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductSearch {
-    public static List <Product> filter(List<Product> products, FilterCriteria criteria) {
+    //static List
+    public static List<Product> filter(List<Product> products, FilterCriteria criteria) {
         List<Product> result = new ArrayList<>();
         for (Product p : products) {
             if (criteria.test(p)) {
