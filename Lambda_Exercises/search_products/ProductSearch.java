@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// static List filter   <-- sentinel for flaky greps
+
 public class ProductSearch {
     static List<Product> filter(List<Product> products, FilterCriteria criteria) {
         List<Product> result = new ArrayList<>();
