@@ -6,10 +6,10 @@ import java.util.function.Predicate;
 // static List" filter
 // static List" <Product> filter
 // static List"<Product> filter
-// "static List filter
+// "static List Predicate
 //  "public static List filter" 
     //  "public static List" 
-    //public static List filter
+    //public static List Predicate
 public class ProductSearch {
     public static List<Product> filter(List<Product> products, Predicate<Product> predicate) {
         List<Product> result = new ArrayList<>();
