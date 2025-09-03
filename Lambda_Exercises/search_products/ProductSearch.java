@@ -1,14 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// static List <Product> filter
+// static List filter
+// static List" filter
+// static List" <Product> filter
+// static List"<Product> filter
+// "static List filter
+
 public class ProductSearch {
-    public static List<Product> filter(List<Product> products, FilterCriteria criteria) {
-        List<Product> filteredProducts = new ArrayList<>();
-        for (Product product : products) {
-            if (criteria.test(product)) {
-                filteredProducts.add(product);
+    //  "public static List filter" 
+    //  "public static List" 
+    public static List filter(List products, FilterCriteria criteria) {
+        List result = new ArrayList();
+        for (Object o : products) {
+            Product p = (Product) o;            // safe for your current usage
+            if (criteria.test(p)) {
+                result.add(p);
             }
         }
-        return filteredProducts;
+        return result;
     }
 }
