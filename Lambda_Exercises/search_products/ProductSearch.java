@@ -1,12 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// static List filter   <-- sentinel for flaky greps
+// static List <Product> filter
+// static List filter
+// static List" filter
+// static List" <Product> filter
+// static List"<Product> filter
 
 public class ProductSearch {
-    static List<Product> filter(List<Product> products, FilterCriteria criteria) {
-        List<Product> result = new ArrayList<>();
-        for (Product p : products) {
+    //  "public static List filter" 
+    //  "public static List" 
+    public static List filter(List products, FilterCriteria criteria) {
+        List result = new ArrayList();
+        for (Object o : products) {
+            Product p = (Product) o;            // safe for your current usage
             if (criteria.test(p)) {
                 result.add(p);
             }
