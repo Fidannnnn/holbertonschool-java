@@ -26,14 +26,14 @@ import java.util.List;
 
             Order order1 = new Order(1, List.of(product4, product3, product6), client1);
             Order order2 = new Order(2, List.of(product1, product6, product2), client2);
-            Order order3 = new Order(3, List.of(product4, product6, product2, product5), client3);
+            Order order3 = new Order(3, List.of(product4, product6, product5), client3);
 
-            List<Product> bookProducts1 = Query.getBooksFromOrder(order1);
-            List<Product> bookProducts2 = Query.getBooksFromOrder(order2);
-            List<Product> bookProducts3 = Query.getBooksFromOrder(order3);
+            Product highestProduct1 = Query.getProductWithHighestPrice(order1.getProducts());
+            Product highestProduct2 = Query.getProductWithHighestPrice(order2.getProducts());
+            Product highestProduct3 = Query.getProductWithHighestPrice(order3.getProducts());
 
-            System.out.println(bookProducts1);
-            System.out.println(bookProducts2);
-            System.out.println(bookProducts3);
+            System.out.println(highestProduct1);
+            System.out.println(highestProduct2);
+            System.out.println(highestProduct3);
         }
     }
