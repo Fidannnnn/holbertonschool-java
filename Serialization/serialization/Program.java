@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Program {  
 
     public static void main(String[] args) {    
@@ -12,16 +14,16 @@ public class Program {
             student1, student2, student3, student4, student5    
         );  
 
-        SerializeStudents<Student> serializeStudent1 = new SerializeStudents<Student>("students.data"); 
+        SerializeStudents<Student> serializeStudent1 = new SerializeStudents<>("students.data"); 
         serializeStudent1.serialize(students);  
 
         List<Student> deserializationList1 = serializeStudent1.deserialize();   
 
-        for(Student e : deserializationList1) { 
+        for (Student e : deserializationList1) { 
             System.out.println(e);  
         }   
 
-        SerializeStudents<Student> serializeStudent2 = new SerializeStudents<Student>("students1.data");    
+        SerializeStudents<Student> serializeStudent2 = new SerializeStudents<>("students1.data");    
         List<Student> deserializationList2 = serializeStudent2.deserialize();   
-      } 
-    }
+    } 
+}
