@@ -8,7 +8,6 @@ public class SerializeStudents<T extends Serializable> {
         this.fileName = fileName;
     }
 
-    // serialize: persist list to file, print on error
     public void serialize(List<T> students) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(students);
@@ -17,8 +16,6 @@ public class SerializeStudents<T extends Serializable> {
         }
     }
 
-    // deserialize: read list from file, print on error and return empty list
-    @SuppressWarnings("unchecked")
     public List<T> deserialize() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             Object obj = ois.readObject();
