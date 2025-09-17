@@ -12,7 +12,7 @@
       <property name="hibernate.hbm2ddl.auto" value="update"/>
       <property name="hibernate.dialect" value="org.sqlite.hibernate.dialect.SQLiteDialect"/>
 
-      <!-- logging helpers (Hibernate also recognizes the hibernate.* names) -->
+      <!-- use either pair below; this matches the task’s example -->
       <property name="show_sql" value="true"/>
       <property name="format_sql" value="true"/>
     </properties>
