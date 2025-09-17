@@ -14,13 +14,19 @@ public class CustomerDAOImpl implements CustomerDAO {
             return null;
         }
         try {
-            // Load SQLite driver if using SQLite URLs (harmless if not present)
+            // Helpful for some environments; harmless otherwise
             if (connectionUrl.startsWith("jdbc:sqlite:")) {
                 try { Class.forName("org.sqlite.JDBC"); } catch (ClassNotFoundException ignore) {}
             }
-            return DriverManager.getConnection(connectionUrl);
+            Connection conn = DriverManager.getConnection(connectionUrl);
+            // Touch the DB so the file materializes
+            try (Statement st = conn.createStatement()) {
+                st.execute("PRAGMA user_version = 1");
+            }
+            System.out.println("Connected: " + connectionUrl);
+            return conn;
         } catch (SQLException e) {
-            System.err.println("Failed to obtain connection: " + e.getMessage());
+            System.err.println("connect error: " + e.getMessage());
             return null;
         }
     }
@@ -29,8 +35,8 @@ public class CustomerDAOImpl implements CustomerDAO {
     public void createTable(String connectionUrl) {
         String sql =
             "CREATE TABLE IF NOT EXISTS customer (" +
-            "  id   INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "  name TEXT," +
+            "  id   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "  name TEXT NOT NULL," +
             "  age  INTEGER," +
             "  cpf  TEXT," +
             "  rg   TEXT" +
@@ -39,6 +45,7 @@ public class CustomerDAOImpl implements CustomerDAO {
              Statement st = (c != null ? c.createStatement() : null)) {
             if (st == null) return;
             st.execute(sql);
+            System.out.println("Table 'customer' ensured.");
         } catch (SQLException e) {
             System.err.println("createTable error: " + e.getMessage());
         }
@@ -48,13 +55,9 @@ public class CustomerDAOImpl implements CustomerDAO {
     public void insert(String connectionUrl, Customer customer) {
         if (customer == null) return;
 
-        // If id is provided, insert it; otherwise, let AUTOINCREMENT handle it
         boolean hasId = customer.getId() != null;
-
-        String sqlWithId =
-            "INSERT INTO customer (id, name, age, cpf, rg) VALUES (?, ?, ?, ?, ?)";
-        String sqlAuto =
-            "INSERT INTO customer (name, age, cpf, rg) VALUES (?, ?, ?, ?)";
+        String sqlWithId = "INSERT INTO customer (id, name, age, cpf, rg) VALUES (?, ?, ?, ?, ?)";
+        String sqlAuto   = "INSERT INTO customer (name, age, cpf, rg) VALUES (?, ?, ?, ?)";
 
         try (Connection c = connect(connectionUrl)) {
             if (c == null) return;
@@ -79,6 +82,7 @@ public class CustomerDAOImpl implements CustomerDAO {
                     ps.executeUpdate();
                 }
             }
+            System.out.println("Inserted: " + customer.getName());
         } catch (SQLException e) {
             System.err.println("insert error: " + e.getMessage());
         }
@@ -91,14 +95,16 @@ public class CustomerDAOImpl implements CustomerDAO {
              Statement st = (c != null ? c.createStatement() : null)) {
             if (st == null) return;
             try (ResultSet rs = st.executeQuery(sql)) {
+                System.out.println("---- customer rows ----");
                 while (rs.next()) {
                     int id = rs.getInt("id");
                     String name = rs.getString("name");
                     int age = rs.getInt("age"); if (rs.wasNull()) age = 0;
                     String cpf = rs.getString("cpf");
-                    String rg = rs.getString("rg");
+                    String rg  = rs.getString("rg");
                     System.out.println(id + "|" + name + "|" + age + "|" + cpf + "|" + rg);
                 }
+                System.out.println("-----------------------");
             }
         } catch (SQLException e) {
             System.err.println("selectAll error: " + e.getMessage());
@@ -115,7 +121,8 @@ public class CustomerDAOImpl implements CustomerDAO {
             if (age == null) ps.setNull(2, java.sql.Types.INTEGER);
             else ps.setInt(2, age);
             ps.setInt(3, id);
-            ps.executeUpdate();
+            int n = ps.executeUpdate();
+            System.out.println("Updated rows: " + n);
         } catch (SQLException e) {
             System.err.println("update error: " + e.getMessage());
         }
@@ -128,7 +135,8 @@ public class CustomerDAOImpl implements CustomerDAO {
              PreparedStatement ps = (c != null ? c.prepareStatement(sql) : null)) {
             if (ps == null) return;
             ps.setInt(1, id);
-            ps.executeUpdate();
+            int n = ps.executeUpdate();
+            System.out.println("Deleted rows: " + n);
         } catch (SQLException e) {
             System.err.println("delete error: " + e.getMessage());
         }
