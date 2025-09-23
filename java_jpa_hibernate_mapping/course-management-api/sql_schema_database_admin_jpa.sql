@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS students (
   firstName TEXT NOT NULL,
   lastName  TEXT NOT NULL,
   email     TEXT NOT NULL UNIQUE,
+  ,birthDate TEXT
   street    TEXT,
   city      TEXT,
   zipCode   TEXT

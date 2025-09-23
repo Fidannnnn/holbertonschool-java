@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
+import java.time.LocalDate;
 
 public class CourseManagementMain {
 
@@ -40,11 +41,13 @@ public class CourseManagementMain {
             // Students
             Student s1 = new Student("Ada", "Lovelace", "ada@uni.edu",
                     new Address("42 Logic St", "Baku", "AZ1000"));
+            s1.setBirthDate(LocalDate.of(1815, 12, 10));
             s1.addPhone(new Phone("050-111-22-33", "MOBILE"));
             s1.addPhone(new Phone("012-555-66-77", "HOME"));
 
             Student s2 = new Student("Grace", "Hopper", "grace@uni.edu",
                     new Address("1 Compiler Ave", "Baku", "AZ1002"));
+            s2.setBirthDate(LocalDate.of(1906, 12, 9));
             s2.addPhone(new Phone("051-333-44-55", "MOBILE"));
 
             // Enrollments (Many-to-Many)

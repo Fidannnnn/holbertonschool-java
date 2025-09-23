@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.util.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "students")
@@ -20,6 +21,9 @@ public class Student {
 
     @Embedded
     private Address address;
+
+    @Column(name = "birthDate")
+    private LocalDate birthDate;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Phone> phones = new ArrayList<>();
@@ -61,6 +65,10 @@ public class Student {
     public void setEmail(String v) { this.email = v; }
     public Address getAddress() { return address; }
     public void setAddress(Address v) { this.address = v; }
+
+    public LocalDate getBirthDate() { return birthDate; }
+    public void setBirthDate(LocalDate birthDate) { this.birthDate = birthDate; }
+
     public List<Phone> getPhones() { return phones; }
     public Set<Course> getCourses() { return courses; }
 
@@ -69,6 +77,7 @@ public class Student {
         return "Student{id=" + id +
                 ", name=" + firstName + " " + lastName +
                 ", email=" + email +
+                ", birthDate=" + birthDate +
                 ", courses=" + courses.size() +
                 ", phones=" + phones.size() + "}";
     }
