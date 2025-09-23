@@ -1,33 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.2"
-  xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" 
+version="2.1">
 
-  <persistence-unit name="coursePU" transaction-type="RESOURCE_LOCAL">
-    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
-    <!-- List entity classes -->
-    <class>entities.Student</class>
-    <class>entities.Phone</class>
-    <class>entities.Address</class>
-    <class>entities.Teacher</class>
-    <class>entities.Course</class>
-    <class>entities.CourseMaterial</class>
-
+  <persistence-unit name="course-management-jpa" transaction-type="RESOURCE_LOCAL">
     <properties>
-      <!-- SQLite file DB created at project root -->
-      <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:database_admin_jpa.db"/>
-      <property name="javax.persistence.jdbc.user" value=""/>
-      <property name="javax.persistence.jdbc.password" value=""/>
-
-      <!-- Hibernate config -->
-      <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.use_sql_comments" value="true"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:database_admin_jpa.db" />
+      <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />
+      <property name="hibernate.hbm2ddl.auto" value="update" />
+      <property name="hibernate.dialect" value="org.sqlite.hibernate.dialect.SQLiteDialect" />
+      <property name="show_sql" value ="true" />
+      <property name="format_sql" value ="true" />
     </properties>
   </persistence-unit>
 </persistence>
