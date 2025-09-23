@@ -1,0 +1,17 @@
+Serverless Architecture is an execution model in which the cloud provider runs code on demand, dynamically allocates resources, and bills only for the compute consumed by that execution. You don’t manage servers or capacity; the platform scales up and down automatically, typically in response to events.
+
+Function as a Service (FaaS) is the core serverless compute model: small, event-driven functions run in stateless containers. The function logic lives in code; persistent state and integration are handled through provider services (databases, queues, storage). Triggers can be HTTP requests, messages, or other events.
+
+Benefits of Serverless:
+• Pay-per-use and automatic scaling reduce cost and operational overhead.
+• Faster delivery: developers focus on business logic instead of provisioning and patching servers.
+• Resilience: failures are isolated at the function level, and the platform manages concurrency and scaling.
+
+Cloud Computing delivers computing services (servers, storage, databases, networking, software, analytics, intelligence) over the internet. Benefits include eliminating capital expense on hardware, leveraging global, regularly updated data centers, improved reliability and security features, and increased agility.
+
+Monolithic vs Microservices vs Serverless:
+• Monolithic Architecture packages the entire application as a single deployable unit, often backed by one database. This increases coupling; changes can require redeploying the whole app and may introduce a single point of failure.
+• Microservices Architecture decomposes by business function into small, autonomous services with low coupling. Each service can be developed, deployed, and scaled independently and may have its own database. Services communicate via HTTP, messaging, or event-oriented mechanisms, improving fault isolation and team velocity.
+• Serverless (with FaaS) goes a step further in granularity and operations: functions are deployed independently, invoked by events, and the platform handles servers and scaling. An API Gateway can front HTTP-invoked functions but is not strictly mandatory. Serverless shares microservices’ benefits of independence and rapid iteration while further minimizing infrastructure management and aligning cost with actual usage.
+
+In short: Cloud provides the foundation, microservices provide modular service boundaries and low coupling, and serverless provides event-driven execution with zero server management and pay-per-use economics.
