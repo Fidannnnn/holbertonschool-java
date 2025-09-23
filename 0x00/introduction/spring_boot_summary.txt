@@ -1,0 +1,11 @@
+Spring Boot is a Java framework designed to make microservices and standalone applications easy to build and run. In this project’s materials, it’s highlighted as the most popular framework for microservices development, because it removes boilerplate setup and lets teams focus on business logic.
+
+Benefits and features: Spring Boot provides sensible default configurations, an embedded application server (Apache Tomcat by default), and the dependencies you need to start an application without configuring everything from scratch. Spring integrates smoothly with popular databases via modules such as Spring JDBC and Spring JPA, and is known to be lightweight in resource usage for the core framework. Importantly, data exchange is not limited to JSON—Spring can support other formats as needed.
+
+Adding dependencies (JPA, Hibernate, etc.): Spring Boot projects typically use Apache Maven. You declare dependencies in the project’s POM (pom.xml), and Maven resolves them (including transitive sub-dependencies). For example, adding Spring Data JPA and Hibernate is as simple as including the correct entries in pom.xml; the build then downloads and wires them into the application.
+
+Best IDE for Spring Boot: All of the major IDEs can work (IntelliJ IDEA, Eclipse, NetBeans), but a practical choice emphasized in this project is Spring Tools Suite (STS). STS is Eclipse-based, requires Java 8 or higher, and comes with Spring-aware tooling that streamlines Boot development out of the box.
+
+What is Spring Initializr? It’s the standard way to bootstrap a Spring Boot project: you select the Boot version and the dependencies (e.g., Web, JPA, JDBC), and it generates a ready-to-build project with Maven setup and application scaffolding. That aligns with this project’s theme of fast start-up and minimal manual configuration.
+
+In short, Spring Boot accelerates microservices development by bundling auto-configuration, an embedded server (Tomcat), and straightforward dependency management via Maven. Combined with STS and Spring Initializr, it lets you create production-ready services quickly while keeping configuration effort low.
