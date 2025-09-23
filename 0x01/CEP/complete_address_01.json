@@ -1,7 +1,8 @@
 {
-  "cep": "13086-902",
-  "logradouro": "—",
-  "bairro": "—",
-  "cidade": "Campinas",
-  "estado": "SP"
-}
+    "postalCode": "13086-902",
+    "street": "",
+    "neighborhood": "",
+    "city": "Campinas",
+    "state": "SP"
+  }
+  
