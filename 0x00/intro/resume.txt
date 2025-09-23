@@ -1,0 +1,14 @@
+Microservices are an architectural style for building applications as a set of small, autonomous services. Each service implements a single business function, is independently deployable, and can have its own database, reducing coupling.
+
+Overview — Monolithic vs Microservices:
+A monolith packages all components into a single unit (often with a single database), increasing coupling and making changes riskier. Microservices decompose the system by function into independent services with low coupling. This avoids a single point of failure: if one service has a problem, the rest keep working.
+
+Benefits (examples):
+• Independent scalability and deployment per service.
+• Faster delivery and team autonomy: new features can be added quickly.
+• Fault isolation and resilience: failures are contained to the affected service.
+
+Types of communication between microservices:
+• HTTP
+• Messaging
+• Event-oriented communication
