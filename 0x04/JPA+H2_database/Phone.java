@@ -1,4 +1,3 @@
-package com.example.jpah2demo.model;
 
 import javax.persistence.*;
 
