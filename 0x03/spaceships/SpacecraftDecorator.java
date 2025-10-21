@@ -17,3 +17,4 @@ public class SpacecraftDecorator extends Spacecraft {
         return spacecraft.getAttack();
     }
 }
+// Spacecraft spacecraftDecorated
