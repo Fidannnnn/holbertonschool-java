@@ -5,8 +5,8 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class Order {
-    private final HashSet<OrderItem> itemsInBox = new HashSet<>();
-    private final HashSet<OrderItem> itemsOutOfBox = new HashSet<>();
+    private HashSet<OrderItem> itemsInBox = new HashSet<>();
+    private HashSet<OrderItem> itemsOutOfBox = new HashSet<>();
 
     public void addItemInBox(OrderItem item) {
         // Keep only one of each OrderItemType inside the box
