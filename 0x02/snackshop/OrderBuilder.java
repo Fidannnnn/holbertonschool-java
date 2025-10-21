@@ -1,6 +1,6 @@
 // OrderBuilder.java
 public class OrderBuilder extends OrderAbstractBuilder {
-    private final Order order = new Order();
+    private Order order = new Order();
 
     @Override
     public void setSnack(SnackType type) {
