@@ -21,3 +21,4 @@ public class Spacecraft {
         return "Health: " + getHealth() + " - Attack: " + getAttack();
     }
 }
+// Health: %d - Attack: %d
