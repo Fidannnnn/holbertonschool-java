@@ -2,8 +2,8 @@
 import java.util.Objects;
 
 public class OrderItem {
-    private final OrderItemType type;
-    private final String name;
+    private OrderItemType type;
+    private String name;
 
     public OrderItem(OrderItemType type, String name) {
         this.type = type;
